@@ -1,0 +1,67 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_concert"
+    tools:context="com.kapture.zaf.fragments.SignUpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9e000000"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/myTextView"
+            android:layout_height="wrap_content"
+            android:text="USERNAME"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            style="@style/myEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView18"
+            style="@style/myTextView"
+            android:layout_marginTop="20dp"
+            android:text="PASSWORD" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            style="@style/myEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView21"
+            style="@style/myTextView"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="REENTER PASSWORD" />
+
+        <EditText
+            android:id="@+id/etReenterPassword"
+            style="@style/myEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnSigningUp"
+            style="@style/MyButton"
+            android:layout_height="wrap_content"
+            android:text="SIGN UP" />
+    </LinearLayout>
+</FrameLayout>
