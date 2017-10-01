@@ -8,4 +8,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="payment_methods">
+        <item>Paynow</item>
+        <item>Ecocash</item>
+    </array>
 </resources>

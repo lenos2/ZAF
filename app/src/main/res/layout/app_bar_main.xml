@@ -10,10 +10,15 @@
         android:id="@+id/include" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ibmenu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_vertical|left"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:src="@mipmap/ic_menu_bars"
+        android:visibility="gone"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|right" />
 

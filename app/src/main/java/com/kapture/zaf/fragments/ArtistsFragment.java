@@ -17,7 +17,7 @@ import com.kapture.zaf.R;
 public class ArtistsFragment extends Fragment {
 
     View v;
-    TextView tvArtist4;
+    TextView tvArtist1, tvArtist2, tvArtist3, tvArtist4;
 
     public ArtistsFragment() {
         // Required empty public constructor
@@ -37,8 +37,29 @@ public class ArtistsFragment extends Fragment {
 
         v=view;
 
+        tvArtist1 = (TextView)v.findViewById(R.id.tvArtist1);
+        tvArtist2 = (TextView)v.findViewById(R.id.tvArtist2);
+        tvArtist3 = (TextView)v.findViewById(R.id.tvArtist3);
         tvArtist4 = (TextView)v.findViewById(R.id.tvArtist4);
 
+        tvArtist1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onArtistClick("Oliver Mutukudzi");
+            }
+        });
+        tvArtist2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onArtistClick("Winky D");
+            }
+        });
+        tvArtist3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onArtistClick("Soul Jah Luv");
+            }
+        });
         tvArtist4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

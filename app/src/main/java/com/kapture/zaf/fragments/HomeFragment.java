@@ -18,7 +18,8 @@ public class HomeFragment extends Fragment {
 
     View v;
 
-    View artists;
+    View artists,events, pictures;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -38,10 +39,25 @@ public class HomeFragment extends Fragment {
         v = view;
 
         artists = (LinearLayout)v.findViewById(R.id.layout_artists);
+        events = (LinearLayout)v.findViewById(R.id.layout_events);
+        pictures = (LinearLayout)v.findViewById(R.id.layout_pictures);
+
         artists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.onClickArtists();
+            }
+        });
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClickEvents();
+            }
+        });
+        pictures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClickPictures();
             }
         });
 

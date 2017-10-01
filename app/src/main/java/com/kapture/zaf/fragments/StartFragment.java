@@ -1,7 +1,9 @@
 package com.kapture.zaf.fragments;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
 
@@ -11,8 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.kapture.zaf.R;
 import com.transitionseverywhere.Fade;
 import com.transitionseverywhere.TransitionManager;
@@ -29,9 +39,14 @@ public class StartFragment extends Fragment {
     View layout1,layout2;
     Boolean visible;
 
+    FirebaseAuth mAuth;
+
 
     Button btnSignIn,btnSignInActual;
     TextView tvSignUp,tvSignUp2;
+    EditText etEmail,etPassord;
+
+    ProgressDialog progressDialog;
 
     public StartFragment() {
         // Required empty public constructor
@@ -49,6 +64,12 @@ public class StartFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //Check if the user is aleady signed in
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null){
+            listener.onClickSignInActual();
+        }
+
         v = view;
 
         transitionContainer = v.findViewById(R.id.layout_frame);
@@ -61,6 +82,11 @@ public class StartFragment extends Fragment {
         btnSignInActual = v.findViewById(R.id.btnSigninActual);
         tvSignUp = v.findViewById(R.id.tvSignUp);
         tvSignUp2 = v.findViewById(R.id.tvSignUp2);
+
+        etEmail = v.findViewById(R.id.etEmail);
+        etPassord = v.findViewById(R.id.etPassword);
+
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +108,34 @@ public class StartFragment extends Fragment {
         btnSignInActual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //First check if passwords are correct
+                final String email,password;
+                email = etEmail.getText().toString().trim();
+                password = etPassord.getText().toString();
+
+                if (email.equals("") || password.equals("")){
+                    Toast.makeText(v.getContext(),"Please fill in all fields.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                progressDialog = ProgressDialog.show(v.getContext(),null,"Signing in...");
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        Toast.makeText(v.getContext(),"Welcome "/*+user.getDisplayName()*/,Toast.LENGTH_SHORT).show();
+                        listener.onClickSignInActual();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(v.getContext(),"Failed To log in. Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+                progressDialog.dismiss();
                 listener.onClickSignInActual();
             }
         });

@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown"
+    android:orientation="vertical"
+    tools:context="com.kapture.zaf.fragments.EventDetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/slice12" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac tincidunt turpis. Etiam non lacus sed tortor cursus laoreet. Mauris tincidunt fringilla dolor, sit amet dapibus arcu ullamcorper sed. Suspendisse at rhoncus urna, ac pulvinar dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur elit turpis, venenatis ac diam eu, lobortis fermentum odio. Nunc tincidunt finibus massa, in blandit nisi molestie id. Fusce ac metus vitae risus placerat lobortis in at sapien. Maecenas non diam eget quam interdum luctus rhoncus a urna.  Aliquam erat volutpat. Quisque in rhoncus elit, bibendum molestie libero. Integer id felis at diam commodo ullamcorper. Donec sit amet pretium libero. Fusce laoreet, mauris quis condimentum posuere, turpis massa efficitur magna, posuere aliquet ante augue non ligula. Curabitur est sapien, fringilla eget arcu a, pellentesque consectetur dui. In nulla enim, elementum id neque ac, lacinia maximus dolor.  Donec finibus laoreet molestie. Morbi nisi nulla, posuere a velit vulputate, dignissim porttitor purus. Nulla at elit eu neque vehicula eleifend. Aenean facilisis vitae massa quis consectetur. Morbi eu justo eget augue sodales aliquam. Nunc eleifend vestibulum varius. Aenean gravida finibus sapien, vitae vulputate ex tempus quis. Integer facilisis pretium purus a tempor. Donec nunc dui, tempus non euismod quis, ultricies nec quam. Morbi vel porta neque. Nunc ullamcorper sodales mi at consectetur. Integer id felis tortor.  Vestibulum condimentum pharetra nisl, vel tristique neque pretium eu. Etiam et est pretium tellus malesuada venenatis. Nam a rhoncus neque. Fusce nisl sapien, euismod nec mattis et, fringilla sed lorem. Suspendisse diam sapien, euismod quis arcu et, hendrerit vehicula urna. Nulla ullamcorper sem vitae mi hendrerit sodales. Fusce id purus eget turpis pretium pellentesque nec a leo. Praesent vitae ipsum efficitur, sollicitudin quam nec, sollicitudin massa. Morbi pretium, leo id porttitor imperdiet, purus arcu sagittis tellus, eu tincidunt erat dolor non odio."
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+</LinearLayout>

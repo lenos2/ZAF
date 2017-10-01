@@ -3,34 +3,47 @@ package com.kapture.zaf;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.kapture.zaf.fragments.ArtistDetailFragment;
 import com.kapture.zaf.fragments.ArtistsFragment;
+import com.kapture.zaf.fragments.BuyTicketDetailFragment;
+import com.kapture.zaf.fragments.BuyTicketFragment;
+import com.kapture.zaf.fragments.EventDetailsFragment;
+import com.kapture.zaf.fragments.EventsLineUpFragment;
+import com.kapture.zaf.fragments.GalleryFragment;
 import com.kapture.zaf.fragments.HomeFragment;
 import com.kapture.zaf.fragments.SignUpFragment;
 import com.kapture.zaf.fragments.StartFragment;
+import com.kapture.zaf.pojos.Event;
+import com.kapture.zaf.pojos.Ticket;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private  static final String TICKET = "ticket";
+    static ImageButton ibMenu;
 
     StartFragment sf;
     SignUpFragment suf;
     HomeFragment hf;
     ArtistsFragment af;
     ArtistDetailFragment adf;
+    EventsLineUpFragment elf;
+    EventDetailsFragment edf;
+    GalleryFragment gf;
+    BuyTicketFragment btf;
+    BuyTicketDetailFragment btdf;
 
 
     FragmentManager fm = getFragmentManager();
@@ -48,17 +61,102 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                ibMenu.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                ibMenu.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+
+
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ibMenu = (ImageButton)findViewById(R.id.ibmenu);
+        ibMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(Gravity.RIGHT)) {
+                    drawer.closeDrawer(Gravity.RIGHT);
+                } else {
+                    drawer.openDrawer(Gravity.RIGHT);
+                    ibMenu.setVisibility(View.GONE);
+                }
+            }
+        });
+
+       setUpFragments();
+
+
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.start_screen, sf);
+        fragmentTransaction.commit();
+    }
+
+    private void setUpFragments(){
         sf = new StartFragment();
         suf = new SignUpFragment();
         hf = new HomeFragment();
         af = new ArtistsFragment();
         adf = new ArtistDetailFragment();
+        elf = new EventsLineUpFragment();
+        edf = new EventDetailsFragment();
+        gf = new GalleryFragment();
+        btf = new BuyTicketFragment();
+
+        btf.setOnTicketPickedListener(new BuyTicketFragment.OnTicketPickedListener() {
+            @Override
+            public void onClick(Ticket t) {
+                btdf = setBtdf(t);
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.start_screen,btdf);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        suf.setOnLogInListener(new SignUpFragment.OnLogInListener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(MainActivity.this,"Welcome",Toast.LENGTH_SHORT).show();
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.start_screen,hf);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                ibMenu.setVisibility(View.VISIBLE);
+            }
+        });
+
+        elf.setOnListItemClickListener(new EventsLineUpFragment.OnListItemClickListener() {
+            @Override
+            public void onClick(Event event) {
+                Toast.makeText(MainActivity.this,"The selected Option is : "+ event.getName(),Toast.LENGTH_SHORT).show();
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.start_screen,edf);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         sf.setOnClickListener(new StartFragment.ClickListener() {
             @Override
@@ -67,6 +165,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.replace(R.id.start_screen,hf);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                ibMenu.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -81,7 +180,10 @@ public class MainActivity extends AppCompatActivity
         hf.setOnClickListener(new HomeFragment.OnHomeClickListener() {
             @Override
             public void onClickEvents() {
-
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.start_screen,elf);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
 
             @Override
@@ -94,7 +196,10 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onClickPictures() {
-
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.start_screen,gf);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
@@ -107,18 +212,24 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.commit();
             }
         });
+    }
 
+    private BuyTicketDetailFragment setBtdf(Ticket t){
 
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.start_screen, sf);
-        fragmentTransaction.commit();
+        BuyTicketDetailFragment f = new BuyTicketDetailFragment();
+        Bundle extra = new Bundle();
+        extra.putSerializable(TICKET,t);
+        f.setArguments(extra);
+
+        return f;
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (drawer.isDrawerOpen(Gravity.RIGHT)) {
+            drawer.closeDrawer(Gravity.RIGHT);
+            ibMenu.setVisibility(View.VISIBLE);
         } else {
             super.onBackPressed();
         }
@@ -167,7 +278,8 @@ public class MainActivity extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(Gravity.RIGHT);
+        ibMenu.setVisibility(View.VISIBLE);
         return true;
     }
 }
