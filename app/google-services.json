@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "172632951202",
+    "firebase_url": "https://kaptureproject.firebaseio.com",
+    "project_id": "kaptureproject",
+    "storage_bucket": "kaptureproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172632951202:android:d7977e1fc4db97a3",
+        "android_client_info": {
+          "package_name": "com.kapture.zaf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172632951202-r2s1m1a5bqbastkh4q07lvibqn3h50ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapture.zaf",
+            "certificate_hash": "9ece8e9ab212c5e1915ad3891383a08e0dfef108"
+          }
+        },
+        {
+          "client_id": "172632951202-v59tdmvkp5cnafosd0dufonpbr3fjoae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaJkcoap6lKAiKXdwwa9Zu1vnhNOX_Bec"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172632951202-v59tdmvkp5cnafosd0dufonpbr3fjoae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
