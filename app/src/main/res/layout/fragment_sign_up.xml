@@ -80,6 +80,7 @@
             style="@style/MyButton"
             android:layout_height="wrap_content"
             android:background="@drawable/button_rounded_responsive"
-            android:text="SIGN UP" />
+            android:text="SIGN UP"
+            android:textColor="@color/purple" />
     </LinearLayout>
 </FrameLayout>

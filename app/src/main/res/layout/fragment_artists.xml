@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brown"
+    android:background="@color/purple"
     tools:context="com.kapture.zaf.fragments.ArtistsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -84,12 +84,9 @@
                         android:id="@+id/imageView5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginBottom="1dp"
                         android:layout_marginRight="1dp"
-=======
-                        android:layout_marginBottom="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
+
                         android:layout_weight="1"
                         android:scaleType="centerCrop"
                         app:layout_constraintBottom_toTopOf="@+id/imageView6"
@@ -102,12 +99,8 @@
                         android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginBottom="1dp"
                         android:layout_marginLeft="1dp"
-=======
-                        android:layout_marginBottom="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@mipmap/slice12" />
@@ -123,11 +116,7 @@
                         android:id="@+id/tvArtist1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginBottom="1dp"
-=======
-                        android:layout_marginBottom="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:background="#6d000000"
                         android:gravity="bottom"
@@ -141,11 +130,7 @@
                         android:id="@+id/tvArtist2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginBottom="1dp"
-=======
-                        android:layout_marginBottom="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:background="#6d000000"
                         android:gravity="bottom"
@@ -171,12 +156,8 @@
                         android:id="@+id/imageView6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginRight="1dp"
                         android:layout_marginTop="1dp"
-=======
-                        android:layout_marginTop="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@mipmap/slice13" />
@@ -185,12 +166,8 @@
                         android:id="@+id/imageView3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
-=======
-                        android:layout_marginTop="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@mipmap/slice11" />
@@ -205,12 +182,8 @@
                         android:id="@+id/tvArtist3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginRight="1dp"
                         android:layout_marginTop="1dp"
-=======
-                        android:layout_marginTop="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:background="#6d000000"
                         android:gravity="bottom"
@@ -224,12 +197,8 @@
                         android:id="@+id/tvArtist4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-<<<<<<< HEAD
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
-=======
-                        android:layout_marginTop="2dp"
->>>>>>> 8da8b04285b87d390912481d04aa202338ba2b3f
                         android:layout_weight="1"
                         android:background="#6d000000"
                         android:gravity="bottom"

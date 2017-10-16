@@ -18,7 +18,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.kapture.zaf.R;
+import com.kapture.zaf.pojos.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,8 +92,29 @@ public class SignUpFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-                        //Toast.makeText(v.getContext(),"Welcome " /*+ username*/,Toast.LENGTH_LONG).show();
-                        listener.onSuccess();
+
+                        User user = new User();
+                        user.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        user.setDob("10.08.1993");
+                        user.setGender("male");
+                        user.setName(username);
+
+                        DatabaseReference ref  = FirebaseDatabase.getInstance().getReference("zap/users");
+                        ref.child(user.getUserId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(v.getContext(),"Welcome " + username,Toast.LENGTH_LONG).show();
+                                listener.onSuccess();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                progressDialog.dismiss();
+                                Toast.makeText(v.getContext(),"Failed to sign up, error occured. Error: "+ e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+
                     }
                 });
             }

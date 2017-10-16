@@ -10,16 +10,33 @@
         android:id="@+id/include" />
 
     <ImageButton
-        android:id="@+id/ibmenu"
+        android:id="@+id/ibMenuOpen"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|left"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:background="#00000000"
-        android:src="@mipmap/ic_menu_bars"
+        android:src="@mipmap/ic_menu_bars_black"
         android:visibility="gone"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|right" />
+
+    <Button
+        android:id="@+id/btnTickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_buy_button"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:text="BUY TICKETS"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
 </android.support.design.widget.CoordinatorLayout>

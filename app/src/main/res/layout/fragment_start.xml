@@ -20,7 +20,8 @@
             android:id="@+id/btnSignIn"
             style="@style/MyButton"
             android:background="@drawable/button_rounded_responsive"
-            android:text="SIGN IN" />
+            android:text="SIGN IN"
+            android:textColor="@color/purple" />
 
         <LinearLayout
             android:layout_width="wrap_content"

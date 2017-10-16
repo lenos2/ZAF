@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/listview"
         android:layout_alignParentBottom="false"
-        android:background="@color/brown"
+        android:background="@color/purple"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:padding="5dp">

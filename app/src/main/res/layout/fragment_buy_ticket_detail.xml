@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brown"
+    android:background="@color/purple"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.kapture.zaf.fragments.BuyTicketDetailFragment">
@@ -11,7 +11,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/ivTicketPicture"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:scaleType="centerCrop"

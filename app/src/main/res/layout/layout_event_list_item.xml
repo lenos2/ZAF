@@ -14,53 +14,73 @@
         android:layout_margin="1dp"
         app:cardElevation="4dp">
 
-        <RelativeLayout
+        <com.kapture.zaf.custom.SquareLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/brown">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ivEventHero"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@mipmap/slice14" />
+                android:layout_height="match_parent"
+                android:background="@color/purple">
 
-            <TextView
-                android:id="@+id/tvEventName"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignBottom="@+id/ivEventHero"
-                android:background="#95000000"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="OLIVER MUTUKUDZI"
-                android:textColor="#fff"
-                android:textSize="20dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvSummaryHeading"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_alignParentTop="false"
-                android:layout_below="@+id/tvEventName"
-                android:padding="10dp"
-                android:text="Time : 4:30 - 7:30"
-                android:textColor="#fff"
-                android:textSize="15dp" />
+                <ImageView
+                    android:id="@+id/ivEventHero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/llsummary"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@mipmap/slice14" />
 
-            <TextView
-                android:id="@+id/tvSummaryBody"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@+id/tvSummaryHeading"
-                android:paddingBottom="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Short description of the event "
-                android:textColor="#fff"
-                android:textSize="15dp" />
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvEventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_above="@+id/llsummary"
+                    android:background="#95000000"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="OLIVER MUTUKUDZI"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/llsummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/purple"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSummaryHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_above="@+id/tvSummaryBody"
+                        android:layout_alignParentTop="false"
+                        android:padding="10dp"
+                        android:text="Time : 4:30 - 7:30"
+                        android:textColor="#fff"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSummaryBody"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_alignParentBottom="true"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Short description of the event "
+                        android:textColor="#fff"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.kapture.zaf.custom.SquareLayout>
+
 
     </android.support.v7.widget.CardView>
 </RelativeLayout>

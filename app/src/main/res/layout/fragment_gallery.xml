@@ -5,13 +5,10 @@
     tools:context="com.kapture.zaf.fragments.GalleryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Gallery Empty..."
-        android:textColor="@color/brown"
-        android:textSize="30dp"
-        android:textStyle="bold" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gallery_recylerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/layout_gallery_thumbnail" />
 </FrameLayout>

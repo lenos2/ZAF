@@ -125,7 +125,8 @@ public class StartFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        Toast.makeText(v.getContext(),"Welcome "/*+user.getDisplayName()*/,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Welcome "+user.getDisplayName(),Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
                         listener.onClickSignInActual();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -135,8 +136,7 @@ public class StartFragment extends Fragment {
                         Toast.makeText(v.getContext(),"Failed To log in. Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
-                progressDialog.dismiss();
-                listener.onClickSignInActual();
+
             }
         });
 

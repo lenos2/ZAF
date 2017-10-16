@@ -5,29 +5,24 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kapture.zaf.R;
-import com.kapture.zaf.classes.MyAdapter;
+import com.kapture.zaf.custom.MyAdapter;
 import com.kapture.zaf.pojos.Event;
+import com.kapture.zaf.pojos.Event2;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,12 +87,19 @@ public class EventsLineUpFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("zap/events");
 
+        //Toast.makeText(v.getContext(),"Getting Data",Toast.LENGTH_SHORT).show();
+
         progressDialog = ProgressDialog.show(v.getContext(),null,"Loading...");
+        //Toast.makeText(v.getContext(),"Dialogue",Toast.LENGTH_SHORT).show();
+
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                myEvents.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Event event = snapshot.getValue(Event.class);
+
                     myEvents.add(event);
                 }
 

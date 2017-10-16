@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZAF</string>
+    <string name="app_name">Zarts</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,7 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <array name="payment_methods">
-        <item>Paynow</item>
         <item>Ecocash</item>
+        <item>Paynow</item>
     </array>
 </resources>

@@ -77,6 +77,7 @@ public class BuyTicketFragment extends Fragment {
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                tickets.clear();
                 for (DataSnapshot snapshot :dataSnapshot.getChildren()){
                     Ticket t = snapshot.getValue(Ticket.class);
                     tickets.add(t);
